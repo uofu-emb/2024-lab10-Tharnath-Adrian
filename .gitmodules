@@ -10,3 +10,6 @@
 [submodule "lib/freertos"]
 	path = lib/freertos
 	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+[submodule "lib/pico-extras"]
+	path = lib/pico-extras
+	url = git@github.com:raspberrypi/pico-extras.git
