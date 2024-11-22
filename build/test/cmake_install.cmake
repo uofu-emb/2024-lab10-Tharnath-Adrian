@@ -1,4 +1,4 @@
-# Install script for directory: /home/jtag/Pico-Projects/Lab08/test
+# Install script for directory: /home/jtag/Pico-Projects/Lab10/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

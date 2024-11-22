@@ -39,16 +39,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/jtag/Pico-Projects/Lab08/build/pico-sdk/tools/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/pico-sdk/tools/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/jtag/Pico-Projects/Lab08/build/pico-sdk/src/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/pico-sdk/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/jtag/Pico-Projects/Lab08/build/pico-sdk/docs/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/pico-sdk/docs/cmake_install.cmake")
 endif()
 

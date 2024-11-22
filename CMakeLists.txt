@@ -21,16 +21,16 @@ else()
     set(FREERTOS_PATH lib/freertos)
 endif()
 
+if(DEFINED ENV{PICO_EXTRAS_PATH})
+    set(PICO_EXTRAS_PATH $ENV{PICO_EXTRAS_PATH})
+else()
+    set(PICO_EXTRAS_PATH lib/pico-extras)
+endif()
+
 if(DEFINED ENV{UNITY_PATH})
     set(UNITY_PATH $ENV{UNITY_PATH})
 else()
     set(UNITY_PATH lib/unity)
-endif()
-
-if(DEFINED ENV{CAN_PATH})
-    set(CAN_PATH $ENV{CAN_PATH})
-else()
-    set(CAN_PATH lib/can2040)
 endif()
 
 # ====================================================================================
@@ -52,7 +52,10 @@ include(${FREERTOS_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.c
 # This sets up the unity library. They don't provide a library export, so it's defined locally.
 include(unity.cmake)
 
-include(lib/can2040/can2040.cmake)
+# We also need PICO EXTRAS
+include(${PICO_EXTRAS_PATH}/pico_sdk_import.cmake)
+
+project(pico_playground C CXX)
 
 # This defines your project name, you can name it anything you want.
 project(myproject C CXX ASM)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/jtag/Pico-Projects/Lab08
+# Install script for directory: /home/jtag/Pico-Projects/Lab10
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/jtag/Pico-Projects/Lab08/build/FREERTOS_KERNEL/cmake_install.cmake")
-  include("/home/jtag/Pico-Projects/Lab08/build/pico-sdk/cmake_install.cmake")
-  include("/home/jtag/Pico-Projects/Lab08/build/src/cmake_install.cmake")
-  include("/home/jtag/Pico-Projects/Lab08/build/test/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/FREERTOS_KERNEL/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/pico-sdk/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/src/cmake_install.cmake")
+  include("/home/jtag/Pico-Projects/Lab10/build/test/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jtag/Pico-Projects/Lab08/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jtag/Pico-Projects/Lab10/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

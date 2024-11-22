@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/jtag/Pico-Projects/Lab08
-BuildDirectory: /home/jtag/Pico-Projects/Lab08/build
+SourceDirectory: /home/jtag/Pico-Projects/Lab10
+BuildDirectory: /home/jtag/Pico-Projects/Lab10/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/home/jtag/.pico-sdk/cmake/v3.28.6/bin/cmake" "/home/jtag/Pico-Projects/Lab08"
-MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/home/jtag/.pico-sdk/cmake/v3.28.6/bin/cmake" "/home/jtag/Pico-Projects/Lab10"
+MakeCommand: /home/jtag/.pico-sdk/cmake/v3.28.6/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
