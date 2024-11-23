@@ -7,14 +7,14 @@
 
 # =============================================================================
 # Project: myproject
-# Configurations: Release
+# Configurations: Debug
 # =============================================================================
 # =============================================================================
 
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__unity_unscanned_Release
+rule C_COMPILER__unity_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule C_COMPILER__unity_unscanned_Release
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__unity_Release
+rule C_STATIC_LIBRARY_LINKER__unity_Debug
   command = $PRE_LINK && /home/jtag/.pico-sdk/cmake/v3.28.6/bin/cmake -E rm -f $TARGET_FILE && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -41,7 +41,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER__bs2_default_unscanned_Release
+rule ASM_COMPILER__bs2_default_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -51,7 +51,7 @@ rule ASM_COMPILER__bs2_default_unscanned_Release
 #############################################
 # Rule for linking ASM executable.
 
-rule ASM_EXECUTABLE_LINKER__bs2_default_Release
+rule ASM_EXECUTABLE_LINKER__bs2_default_Debug
   command = $PRE_LINK && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $FLAGS -Wl,--build-id=none $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking ASM executable $TARGET_FILE
   restat = $RESTAT
@@ -60,7 +60,7 @@ rule ASM_EXECUTABLE_LINKER__bs2_default_Release
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER__blink_unscanned_Release
+rule ASM_COMPILER__blink_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -70,7 +70,7 @@ rule ASM_COMPILER__blink_unscanned_Release
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__blink_unscanned_Release
+rule C_COMPILER__blink_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -80,7 +80,7 @@ rule C_COMPILER__blink_unscanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__blink_unscanned_Release
+rule CXX_COMPILER__blink_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -90,7 +90,7 @@ rule CXX_COMPILER__blink_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__blink_Release
+rule CXX_EXECUTABLE_LINKER__blink_Debug
   command = $PRE_LINK && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $FLAGS -Wl,--build-id=none $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -99,7 +99,7 @@ rule CXX_EXECUTABLE_LINKER__blink_Release
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER__sleep_unscanned_Release
+rule ASM_COMPILER__sleep_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -109,7 +109,7 @@ rule ASM_COMPILER__sleep_unscanned_Release
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__sleep_unscanned_Release
+rule C_COMPILER__sleep_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -119,7 +119,7 @@ rule C_COMPILER__sleep_unscanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__sleep_unscanned_Release
+rule CXX_COMPILER__sleep_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -129,7 +129,7 @@ rule CXX_COMPILER__sleep_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__sleep_Release
+rule CXX_EXECUTABLE_LINKER__sleep_Debug
   command = $PRE_LINK && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $FLAGS -Wl,--build-id=none $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -138,7 +138,7 @@ rule CXX_EXECUTABLE_LINKER__sleep_Release
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER__dormant_unscanned_Release
+rule ASM_COMPILER__dormant_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -148,7 +148,7 @@ rule ASM_COMPILER__dormant_unscanned_Release
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__dormant_unscanned_Release
+rule C_COMPILER__dormant_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -158,7 +158,7 @@ rule C_COMPILER__dormant_unscanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__dormant_unscanned_Release
+rule CXX_COMPILER__dormant_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -168,7 +168,7 @@ rule CXX_COMPILER__dormant_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__dormant_Release
+rule CXX_EXECUTABLE_LINKER__dormant_Debug
   command = $PRE_LINK && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $FLAGS -Wl,--build-id=none $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -177,7 +177,7 @@ rule CXX_EXECUTABLE_LINKER__dormant_Release
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER__mytest_unscanned_Release
+rule ASM_COMPILER__mytest_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -187,7 +187,7 @@ rule ASM_COMPILER__mytest_unscanned_Release
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__mytest_unscanned_Release
+rule C_COMPILER__mytest_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -197,7 +197,7 @@ rule C_COMPILER__mytest_unscanned_Release
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__mytest_unscanned_Release
+rule CXX_COMPILER__mytest_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -207,7 +207,7 @@ rule CXX_COMPILER__mytest_unscanned_Release
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__mytest_Release
+rule CXX_EXECUTABLE_LINKER__mytest_Debug
   command = $PRE_LINK && /home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc $FLAGS -Wl,--build-id=none $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT

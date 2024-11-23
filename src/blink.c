@@ -16,6 +16,7 @@
 
 QueueHandle_t msg_queue;
 
+// Consumes 33mA
 void busy_tight_loop()
 {
     while(1)
@@ -95,17 +96,17 @@ void main()
     int rc = pico_gpio_init();
     hard_assert(rc == PICO_OK);
 
-    msg_queue = xQueueCreate(10,sizeof(int));
-    xTaskCreate(toggle_task, "Toggle Task", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1UL, NULL);
-    gpio_set_irq_enabled_with_callback(IN_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL , true, irq_callback);
+    // msg_queue = xQueueCreate(10,sizeof(int));
+    // xTaskCreate(toggle_task, "Toggle Task", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1UL, NULL);
+    // gpio_set_irq_enabled_with_callback(IN_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL , true, irq_callback);
 
     // blink_led_loop();
 
     // xTaskCreate(blink_led_task, "Blink Task", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1UL, NULL);
     
-    vTaskStartScheduler();
+    // vTaskStartScheduler();
 
-    // busy_tight_loop();
+    busy_tight_loop();
 
     while(1)
     {
