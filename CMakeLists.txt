@@ -24,7 +24,7 @@ endif()
 if(DEFINED ENV{PICO_EXTRAS_PATH})
     set(PICO_EXTRAS_PATH $ENV{PICO_EXTRAS_PATH})
 else()
-    set(PICO_EXTRAS_PATH lib/pico-extras)
+    set(PICO_EXTRAS_PATH /home/jtag/Pico-Projects/Lab10/lib/pico-extras)
 endif()
 
 if(DEFINED ENV{UNITY_PATH})
@@ -49,13 +49,13 @@ include(${PICO_SDK_PATH}/pico_sdk_init.cmake)
 # This imports the library configuration for FreeRTOS
 include(${FREERTOS_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 
-# This sets up the unity library. They don't provide a library export, so it's defined locally.
-include(unity.cmake)
-
 # We also need PICO EXTRAS
 include(${PICO_EXTRAS_PATH}/pico_sdk_import.cmake)
 
-project(pico_playground C CXX)
+include(${PICO_EXTRAS_PATH}/external/pico_extras_import.cmake)
+
+# This sets up the unity library. They don't provide a library export, so it's defined locally.
+include(unity.cmake)
 
 # This defines your project name, you can name it anything you want.
 project(myproject C CXX ASM)
@@ -67,6 +67,7 @@ pico_sdk_init()
 add_compile_definitions(
     configNUMBER_OF_CORES=1
     PICO_ENTER_USB_BOOT_ON_EXIT=1
+    PICO_ON_DEVICE=1
     )
 
 # This is where your project header files are located.

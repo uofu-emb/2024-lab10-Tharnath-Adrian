@@ -10,6 +10,8 @@
 
 static bool awake;
 
+// Sleep Demo - 26 mA
+
 static void alarm_sleep_callback(uint alarm_id) {
     printf("alarm woke us up\n");
     uart_default_tx_wait_blocking();

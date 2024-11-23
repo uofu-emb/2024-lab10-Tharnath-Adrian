@@ -49,11 +49,12 @@ CMAKE_ASM_FLAGS_RELEASE:STRING=-g -O3 -DNDEBUG
 //Flags used by the ASM compiler during RELWITHDEBINFO builds.
 CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_BUILD_TYPE:STRING=Debug
+//Choose the type of build, options are: 'Debug', 'Release', 'MinSizeRel',
+// 'RelWithDebInfo'.
+CMAKE_BUILD_TYPE:STRING=Release
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -78,8 +79,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-g -O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc
+//C compiler
+CMAKE_C_COMPILER:STRING=/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -121,9 +122,6 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
-
-//No help, variable specified on the command line.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/home/jtag/Pico-Projects/Lab10/build/CMakeFiles/pkgRedirects
@@ -232,7 +230,7 @@ CMAKE_STRIP:FILEPATH=/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-
 //Path to a program.
 CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 
-//No help, variable specified on the command line.
+//The CMake toolchain file
 CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/jtag/.pico-sdk/sdk/2.0.0/cmake/preload/toolchains/pico_arm_cortex_m0plus_gcc.cmake
 
 //If this value is on, makefiles will be generated without the
@@ -327,6 +325,16 @@ PICO_DEFAULT_BOOT_STAGE2:STRING=compile_time_choice
 //Build debug builds with -O0
 PICO_DEOPTIMIZED_DEBUG:BOOL=OFF
 
+//Set to ON to fetch copy of PICO EXTRAS from git if not otherwise
+// locatable
+PICO_EXTRAS_FETCH_FROM_GIT:BOOL=
+
+//location to download EXTRAS
+PICO_EXTRAS_FETCH_FROM_GIT_PATH:FILEPATH=
+
+//Path to the PICO EXTRAS
+PICO_EXTRAS_PATH:PATH=/home/jtag/Pico-Projects/Lab10/lib/pico-extras
+
 //Default binaries to not not use flash
 PICO_NO_FLASH:BOOL=OFF
 
@@ -360,9 +368,6 @@ PICO_STDIO_UART:BOOL=ON
 //Globally enable stdio USB
 PICO_STDIO_USB:BOOL=OFF
 
-//No help, variable specified on the command line.
-Python3_EXECUTABLE:UNINITIALIZED=/bin/python3
-
 //Path to a program.
 RENODE:FILEPATH=/usr/bin/renode
 
@@ -379,13 +384,13 @@ myproject_IS_TOP_LEVEL:STATIC=ON
 myproject_SOURCE_DIR:STATIC=/home/jtag/Pico-Projects/Lab10
 
 //Value Computed by CMake
-pico_playground_BINARY_DIR:STATIC=/home/jtag/Pico-Projects/Lab10/build
+pico_extras_BINARY_DIR:STATIC=/home/jtag/Pico-Projects/Lab10/build/pico_extras
 
 //Value Computed by CMake
-pico_playground_IS_TOP_LEVEL:STATIC=ON
+pico_extras_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-pico_playground_SOURCE_DIR:STATIC=/home/jtag/Pico-Projects/Lab10
+pico_extras_SOURCE_DIR:STATIC=/home/jtag/Pico-Projects/Lab10/lib/pico-extras
 
 //Value Computed by CMake
 pico_sdk_BINARY_DIR:STATIC=/home/jtag/Pico-Projects/Lab10/build/pico-sdk
@@ -518,7 +523,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=97
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=116
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -579,7 +584,7 @@ DOXYGEN_DOT_EXECUTABLE-ADVANCED:INTERNAL=1
 DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
 FAMILY_MCUS:INTERNAL=RP2040
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/bin/python3][cfound components: Interpreter ][v3.11.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/bin/python3.11][cfound components: Interpreter ][v3.11.2()]
 //ADVANCED property for variable: GITCOMMAND
 GITCOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MAKECOMMAND
@@ -596,7 +601,7 @@ PICO_CMSIS_DEVICE:INTERNAL=RP2040
 PICO_COMPILER_ASM:INTERNAL=/home/jtag/.pico-sdk/toolchain/13_2_Rel1/bin/arm-none-eabi-gcc
 PICO_DOXYGEN_ENABLED_SECTIONS:INTERNAL=rp2040_specific
 PICO_DOXYGEN_EXCLUDE_PATHS:INTERNAL=/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/hardware_regs;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/cmsis
-PICO_DOXYGEN_PATHS:INTERNAL=/home/jtag/.pico-sdk/sdk/2.0.0/src/common/boot_picobin_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/boot_picoboot_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/boot_uf2_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_base_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_usb_reset_interface_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_bit_ops_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_binary_info;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_divider_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_sync;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_time;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_util;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_stdlib_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/hardware_claim;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/pico_platform;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/hardware_regs;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/hardware_structs;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/boot_stage2;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_base;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_adc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_boot_lock;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_clocks;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_divider;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_dma;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_exception;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_flash;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_gpio;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_i2c;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_interp;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_irq;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_pio;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_pll;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_pwm;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_resets;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_rtc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_spi;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_sync;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_sync_spin_lock;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_ticks;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_timer;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_uart;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_vreg;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_watchdog;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_xosc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_bootrom;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_platform_compiler;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_platform_sections;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_platform_panic;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_aon_timer;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_bootsel_via_double_reset;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_multicore;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_unique_id;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_atomic;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_bit_ops;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_divider;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_double;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_int64_ops;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_flash;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_float;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_mem_ops;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_malloc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_printf;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_rand;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_semihosting;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_uart;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_rtt;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/cmsis;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/tinyusb;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_usb;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_i2c_slave;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_async_context;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_btstack;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_cyw43_driver;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_lwip/tools;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_lwip;/home/jtag/.pico-sdk/sdk/2.0.0/lib/cyw43-driver/src;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_cyw43_arch;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_mbedtls;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_time_adapter;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_crt0;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_clib_interface;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_cxx_options;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_standard_binary_info;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_standard_link;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_fix;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_runtime_init;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_runtime;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdlib;/home/jtag/Pico-Projects/Lab10/build/pico-sdk/src/extra_doxygen
+PICO_DOXYGEN_PATHS:INTERNAL=/home/jtag/.pico-sdk/sdk/2.0.0/src/common/boot_picobin_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/boot_picoboot_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/boot_uf2_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_base_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_usb_reset_interface_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_bit_ops_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_binary_info;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_divider_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_sync;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_time;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_util;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/pico_stdlib_headers;/home/jtag/.pico-sdk/sdk/2.0.0/src/common/hardware_claim;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/pico_platform;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/hardware_regs;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/hardware_structs;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2040/boot_stage2;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_base;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_adc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_boot_lock;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_clocks;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_divider;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_dma;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_exception;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_flash;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_gpio;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_i2c;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_interp;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_irq;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_pio;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_pll;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_pwm;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_resets;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_rtc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_spi;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_sync;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_sync_spin_lock;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_ticks;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_timer;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_uart;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_vreg;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_watchdog;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/hardware_xosc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_bootrom;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_platform_compiler;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_platform_sections;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_platform_panic;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_aon_timer;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_bootsel_via_double_reset;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_multicore;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_unique_id;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_atomic;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_bit_ops;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_divider;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_double;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_int64_ops;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_flash;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_float;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_mem_ops;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_malloc;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_printf;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_rand;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_semihosting;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_uart;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_rtt;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/cmsis;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/tinyusb;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio_usb;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_i2c_slave;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_async_context;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_btstack;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_cyw43_driver;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_lwip/tools;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_lwip;/home/jtag/.pico-sdk/sdk/2.0.0/lib/cyw43-driver/src;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_cyw43_arch;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_mbedtls;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_time_adapter;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_crt0;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_clib_interface;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_cxx_options;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_standard_binary_info;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_standard_link;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_fix/rp2040_usb_device_enumeration;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_fix;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_runtime_init;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_runtime;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdio;/home/jtag/.pico-sdk/sdk/2.0.0/src/rp2_common/pico_stdlib;/home/jtag/Pico-Projects/Lab10/build/pico-sdk/src/extra_doxygen;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/hardware_rosc;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/pico_sleep;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/pico_audio_i2s;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/pico_audio_pwm;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/pico_audio_spdif;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/pico_sd_card;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/pico_scanvideo_dpi;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/usb_common;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/usb_device;/home/jtag/Pico-Projects/Lab10/lib/pico-extras/src/rp2_common/usb_device_msc
 PICO_DOXYGEN_PRE_DEFINES:INTERNAL=PICO_RP2040=1;PICO_RP2350=0
 PICO_GCC_TRIPLE:INTERNAL=arm-none-eabi
 PICO_NO_HARDWARE:INTERNAL=0
@@ -617,10 +622,11 @@ SITE-ADVANCED:INTERNAL=1
 _Python3_Compiler_REASON_FAILURE:INTERNAL=
 //Development reason failure
 _Python3_Development_REASON_FAILURE:INTERNAL=
-_Python3_EXECUTABLE:INTERNAL=/bin/python3
+//Path to a program.
+_Python3_EXECUTABLE:INTERNAL=/usr/bin/python3.11
 //Python3 Properties
 _Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;11;2;32;64;;;abi3;/usr/lib/python3.11;/usr/lib/python3.11;/usr/local/lib/python3.11/dist-packages;/usr/local/lib/python3.11/dist-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=0b84dcd0001a0b83b86e157715a3f4f0
+_Python3_INTERPRETER_SIGNATURE:INTERNAL=9706960aa2a868136534c4a00c8f3e22
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 
