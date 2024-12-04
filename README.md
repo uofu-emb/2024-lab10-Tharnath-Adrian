@@ -19,6 +19,6 @@
 ### Sleep Demo
 26 mA
 
-### Dormant Demo
+### Dormant  Demo
 Runtime : 26 mA
 Dormant : 0.9 mA
